@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"reflect"
+	"strings"
 )
 var dictionary[] string
 
@@ -16,6 +17,7 @@ func load(c *gin.Context) {
 	// Add the value to the dictionary if it was not there before.
 	enteredWords: for _, i := range words.Word {
 		for _, j := range dictionary {
+			i = strings.ToLower(i)
 			if j == i {
 				continue enteredWords
 			}
@@ -31,6 +33,7 @@ func load(c *gin.Context) {
 // Get anagrams in loaded dictionary.
 func get(c *gin.Context){
 	word := c.Query("word")
+	strings.ToLower(word)
 	var anograms[] string
 	c1 := GetCharCount(word)
 
